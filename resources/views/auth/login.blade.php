@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-  <title>Premier-Mart|| Login Page</title>
+  <title>E-SHOP || Login Page</title>
   @include('backend.layouts.head')
 
 </head>

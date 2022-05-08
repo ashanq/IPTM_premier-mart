@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\PDFController;
+use App\Http\Controllers\ProductController;
 
 /*
 |--------------------------------------------------------------------------
@@ -39,6 +41,7 @@ Route::post('/product/search','FrontendController@productSearch')->name('product
 Route::get('/product-cat/{slug}','FrontendController@productCat')->name('product-cat');
 Route::get('/product-sub-cat/{slug}/{sub_slug}','FrontendController@productSubCat')->name('product-sub-cat');
 Route::get('/product-brand/{slug}','FrontendController@productBrand')->name('product-brand');
+Route::get('/product-report', 'ProductController@generatePDF');
 // Cart section
 Route::get('/add-to-cart/{slug}','CartController@addToCart')->name('add-to-cart')->middleware('user');
 Route::post('/add-to-cart','CartController@singleAddToCart')->name('single-add-to-cart')->middleware('user');
@@ -143,3 +146,43 @@ Route::group(['prefix'=>'/admin','middleware'=>['auth','admin']],function(){
     Route::post('change-password', 'AdminController@changPasswordStore')->name('change.password');
 });
 
+
+
+
+
+
+
+
+
+
+// User section start
+Route::group(['prefix'=>'/user','middleware'=>['user']],function(){
+    Route::get('/','HomeController@index')->name('user');
+     // Profile
+     Route::get('/profile','HomeController@profile')->name('user-profile');
+     Route::post('/profile/{id}','HomeController@profileUpdate')->name('user-profile-update');
+    //  Order
+    Route::get('/order',"HomeController@orderIndex")->name('user.order.index');
+    Route::get('/order/show/{id}',"HomeController@orderShow")->name('user.order.show');
+    Route::delete('/order/delete/{id}','HomeController@userOrderDelete')->name('user.order.delete');
+    // Product Review
+    Route::get('/user-review','HomeController@productReviewIndex')->name('user.productreview.index');
+    Route::delete('/user-review/delete/{id}','HomeController@productReviewDelete')->name('user.productreview.delete');
+    Route::get('/user-review/edit/{id}','HomeController@productReviewEdit')->name('user.productreview.edit');
+    Route::patch('/user-review/update/{id}','HomeController@productReviewUpdate')->name('user.productreview.update');
+    
+    // Post comment
+    Route::get('user-post/comment','HomeController@userComment')->name('user.post-comment.index');
+    Route::delete('user-post/comment/delete/{id}','HomeController@userCommentDelete')->name('user.post-comment.delete');
+    Route::get('user-post/comment/edit/{id}','HomeController@userCommentEdit')->name('user.post-comment.edit');
+    Route::patch('user-post/comment/udpate/{id}','HomeController@userCommentUpdate')->name('user.post-comment.update');
+    
+    // Password Change
+    Route::get('change-password', 'HomeController@changePassword')->name('user.change.password.form');
+    Route::post('change-password', 'HomeController@changPasswordStore')->name('change.password');
+
+});
+
+Route::group(['prefix' => 'laravel-filemanager', 'middleware' => ['web', 'auth']], function () {
+    \UniSharp\LaravelFilemanager\Lfm::routes();
+});

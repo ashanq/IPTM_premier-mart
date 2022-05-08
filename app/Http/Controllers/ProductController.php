@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Product;
 use App\Models\Category;
 use App\Models\Brand;
-
+use Barryvdh\DomPDF\Facade as PDF;
 use Illuminate\Support\Str;
 
 class ProductController extends Controller
@@ -184,5 +184,14 @@ class ProductController extends Controller
             request()->session()->flash('error','Error while deleting product');
         }
         return redirect()->route('product.index');
+    }
+
+        public function generatePDF()
+    {
+        $products=Product::getAllProduct();
+   
+        $pdf = PDF::loadView('backend.product.report',compact('products'));
+    
+        return $pdf->download('myPDF.pdf');
     }
 }
