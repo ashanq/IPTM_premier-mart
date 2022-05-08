@@ -1,5 +1,4 @@
 @extends('frontend.layouts.master')
-@section('title','Premier-mart || HOME PAGE')
 @section('main-content')
 <!-- Slider Area -->
 @if(count($banners)>0)
