@@ -192,6 +192,6 @@ class ProductController extends Controller
    
         $pdf = PDF::loadView('backend.product.report',compact('products'));
     
-        return $pdf->download('myPDF.pdf');
+        return $pdf->download('Product.pdf');
     }
 }
