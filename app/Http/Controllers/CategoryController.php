@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Category;
 use Illuminate\Support\Str;
+use Barryvdh\DomPDF\Facade as PDF;
 
 class CategoryController extends Controller
 {
@@ -161,5 +162,12 @@ class CategoryController extends Controller
         else{
             return response()->json(['status'=>true,'msg'=>'','data'=>$child_cat]);
         }
+    }
+
+    public function generatePDF()
+    {
+        $categories=Category::getAllCategory();
+        $pdf = PDF::loadView('backend.category.report',compact('categories'));
+        return $pdf->download('category.pdf');
     }
 }
