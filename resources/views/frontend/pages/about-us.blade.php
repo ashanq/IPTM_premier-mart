@@ -30,7 +30,7 @@
 							@php
 								$settings=DB::table('settings')->get();
 							@endphp
-							<h3>Welcome To <span>Eshop</span></h3>
+							<h3>Welcome To <span>Premiermart</span></h3>
 							<p>@foreach($settings as $data) {{$data->description}} @endforeach</p>
 							<div class="button">
 								<a href="{{route('blog')}}" class="btn">Our Blog</a>
@@ -61,7 +61,7 @@
 					<div class="single-service">
 						<i class="ti-rocket"></i>
 						<h4>Free shiping</h4>
-						<p>Orders over $100</p>
+						<p>Orders over $150</p>
 					</div>
 					<!-- End Single Service -->
 				</div>
@@ -89,6 +89,15 @@
 						<i class="ti-tag"></i>
 						<h4>Best Peice</h4>
 						<p>Guaranteed price</p>
+					</div>
+					<!-- End Single Service -->
+				</div>
+                	<div class="col-lg-3 col-md-6 col-12">
+					<!-- Start Single Service -->
+					<div class="single-service">
+						<i class="ti-tag"></i>
+						<h4>Worldwide Dilivery Sevice </h4>
+						<p>Special rates in festival Seasons</p>
 					</div>
 					<!-- End Single Service -->
 				</div>
