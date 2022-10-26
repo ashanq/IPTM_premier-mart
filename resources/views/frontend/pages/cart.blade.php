@@ -31,6 +31,7 @@
 								<th>NAME</th>
 								<th class="text-center">UNIT PRICE</th>
 								<th class="text-center">QUANTITY</th>
+                                 <th class="text-center">Discount</th>
 								<th class="text-center">TOTAL</th>
 								<th class="text-center"><i class="ti-trash remove-icon"></i></th>
 							</tr>
@@ -163,6 +164,16 @@
 					<div class="single-service">
 						<i class="ti-rocket"></i>
 						<h4>Free shiping</h4>
+						<p>Orders over $100</p>
+					</div>
+					<!-- End Single Service -->
+                	<div class="container">
+			<div class="row">
+				<div class="col-lg-3 col-md-6 col-12">
+					<!-- Start Single Service -->
+					<div class="single-service">
+						<i class="ti-rocket"></i>
+						<h4>Sesonal discounts</h4>
 						<p>Orders over $100</p>
 					</div>
 					<!-- End Single Service -->
