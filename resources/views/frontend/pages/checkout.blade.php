@@ -403,6 +403,7 @@
                                             <form-group>
                                                 <input name="payment_method"  type="radio" value="cod"> <label> Cash On Delivery</label><br>
                                                 <input name="payment_method"  type="radio" value="paypal"> <label> PayPal</label> 
+                                                 <input name="payment_method"  type="radio" value="Cards"> <label> Debit/Credit Cards</label> 
                                             </form-group>
                                             
                                         </div>

@@ -23,6 +23,13 @@
           <span class="text-danger">{{$message}}</span>
           @enderror
         </div>
+        <div class="form-group">
+          <label for="summary" class="col-form-label">Description</label>
+          <textarea class="form-control" id="description" name="description">{{$category->description}}</textarea>
+          @error('description')
+          <span class="text-danger">{{$message}}</span>
+          @enderror
+        </div>
 
         <div class="form-group">
           <label for="is_parent">Is Parent</label><br>
