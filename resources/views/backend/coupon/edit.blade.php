@@ -48,6 +48,9 @@
         <div class="form-group mb-3">
            <button class="btn btn-success" type="submit">Update</button>
         </div>
+          <div class="form-group mb-3">
+           <button class="btn btn-success" type="submit">Reset</button>
+        </div>
       </form>
     </div>
 </div>
